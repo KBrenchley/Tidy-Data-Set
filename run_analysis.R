@@ -99,6 +99,5 @@ names(tidydata) <- gsub("std", "Std", names(tidydata));
 ## Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 ## ================================================================================================================
 
-write(tidydata, file = "tidydataset.csv", ncolumns = ncol(tidydata), append = TRUE, sep = ",");
-
+write.table(tidydata, file = "tidydataset.csv", sep = ",", row.names = FALSE, col.names = TRUE);
 
