@@ -10,9 +10,8 @@ download.file(fileUrl, destfile = destfilename, method = "curl");
 ## unzipped manually; command below doesn't work
 unzip(zipfile = destfilename, list = FALSE, overwrite = TRUE);
 
-## set up directory names
-rawdatadirectory <- "UCI Har Dataset/";
-
+## directory name to be used with unzipped data
+rawdatadirectory <- "./TidyData/UCI Har Dataset/";
 
 ## Merges the training and the test sets to create one data set.
 ## ============================================================
@@ -97,11 +96,9 @@ names(tidydata) <- gsub("^f","Freq-", names(tidydata));
 names(tidydata) <- gsub("mean", "Mean", names(tidydata));
 names(tidydata) <- gsub("std", "Std", names(tidydata));
 
-
-
 ## Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 ## ================================================================================================================
 
-
+write(tidydata, file = "tidydataset.csv", ncolumns = ncol(tidydata), append = TRUE, sep = ",");
 
 
